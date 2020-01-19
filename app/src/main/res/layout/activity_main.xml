@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/activeTest1Button" tools:layout_editor_absoluteY="5dp"
+                tools:layout_editor_absoluteX="16dp" android:text="Test1"/>
+        <Button android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="5dp" tools:layout_editor_absoluteX="104dp"
+                android:layout_width="wrap_content" android:id="@+id/activeTest2Button" android:text="Test2"/>
+    </androidx.appcompat.widget.Toolbar>
+    <FrameLayout android:layout_width="0dp" android:layout_height="0dp" app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintTop_toBottomOf="@+id/my_toolbar" android:id="@+id/fragmentContainer">
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
