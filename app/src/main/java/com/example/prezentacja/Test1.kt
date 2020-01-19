@@ -51,9 +51,13 @@ class Test1 : Fragment() {
 
     private suspend fun startTimer () {
         while (true){
-            timerValue++
-            delay(1000)
-            timer.text = timerValue.toString()
+            try{
+                timerValue++
+                delay(1000)
+                timer.text = timerValue.toString()
+            } catch (error: Exception){
+
+            }
         }
     }
 }
