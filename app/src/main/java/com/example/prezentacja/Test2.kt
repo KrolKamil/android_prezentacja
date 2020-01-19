@@ -23,9 +23,11 @@ class Test2 : Fragment() {
                 sScore.text = "wynik"
                 aScore.text = "wynik"
                 CoroutineScope(Dispatchers.Main).launch {
+                    resetTestProgress()
                     testInProgress = true
-                    startAsynchronousTest()
-                    startSynchronousTest()
+                    val aTest = async {startAsynchronousTest()}
+                    val sTest = async {startSynchronousTest()}
+                    awaitAll(aTest, sTest)
                     testInProgress = false
                 }
             }
@@ -55,12 +57,20 @@ class Test2 : Fragment() {
     }
 
     private suspend fun stressTest(textElement: TextView){
-        textElement.text = ""
         delay(1000)
         textElement.text = "*"
         delay(1000)
         textElement.text = "**"
         delay(1000)
         textElement.text = "***"
+    }
+
+    private fun resetTestProgress(){
+        s1.text = ""
+        s2.text = ""
+        s3.text = ""
+        a1.text = ""
+        a2.text = ""
+        a3.text = ""
     }
 }
